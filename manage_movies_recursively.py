@@ -80,7 +80,7 @@ def manage(movies_data, movies_list, i, end):
         
         # Finding profit if corrent movie can be selected 
         l2 = []
-        if movies_data[i]['Start'][0]>end[0] or movies_data[i]['Start'][1]>end[1]:
+        if movies_data[i]['Start'][1]>end[1] or (movies_data[i]['Start'][1]==end[1] and movies_data[i]['Start'][0]>end[0]):
             movies_list[i] = 1
             end = movies_data[i]['End']
             l2 = manage(movies_data, movies_list, i+1, end)
@@ -91,7 +91,7 @@ def manage(movies_data, movies_list, i, end):
             return l2
 
     else: # at the last index
-        if movies_data[i]['Start'][0]>end[0] or movies_data[i]['Start'][1]>end[1]:
+        if movies_data[i]['Start'][1]>end[1] or (movies_data[i]['Start'][1]==end[1] and movies_data[i]['Start'][0]>end[0]):
             movies_list[i] = 1
 
         return movies_list
